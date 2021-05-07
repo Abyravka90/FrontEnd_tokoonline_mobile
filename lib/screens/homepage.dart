@@ -6,13 +6,17 @@ import 'package:toko_online/screens/add_product.dart';
 import 'package:toko_online/screens/edit_product.dart';
 import 'package:toko_online/screens/product_detail.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({
     Key key,
   }) : super(key: key);
 
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final String url = "http://10.0.2.2:8000/api/products";
-  // http://10.0.2.2:8000/api/products
 
   Future getProducts() async {
     var response = await http.get(Uri.parse(url));
@@ -122,6 +126,7 @@ class HomePage extends StatelessWidget {
                                                             ['id']
                                                         .toString())
                                                     .then((value) {
+                                                  setState(() {});
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(SnackBar(
                                                           content: Text(
