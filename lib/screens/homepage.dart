@@ -75,7 +75,7 @@ class _HomePageState extends State<HomePage> {
                               padding: EdgeInsets.all(5),
                               height: 100,
                               width: 100,
-                              child: Image.network(
+                              child: Image.network("http://10.0.2.2:8000/img/" +
                                   snapshot.data['data'][index]['image_url']),
                             ),
                           ),
